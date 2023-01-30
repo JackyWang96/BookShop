@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="~/Content/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/Content/GoodsList/index.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Content/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/layui/layui.js"></script>
+</head>
+
+<body>
+    <div id="list">
+        <div class="layui-inline">
+            <button onclick="btnAct('add')" type="button" class="layui-btn">Add Book</button>
+        </div>
+        <div class="layui-inline">
+            <button onclick="SearchUser()" type="button" class="layui-btn">Check Book Details</button>
+        </div>
+        <div class="layui-block" style="padding:15px 0;">
+            <div class="layui-inline">
+                <input class="layui-input" name="condition" id="searchCondition" autocomplete="off">
+            </div>
+            <button onclick="search()" type="button" class="layui-btn">Search</button>
+        </div>
+        <!-- 展示数据的列表 -->
+        <table class="layui-hide" id="demo"></table>
+    </div>
+    <!-- 特殊列模版 -->
+    <script type="text/html" id="btn">
+        <button onclick="btnAct('reserve',{{d.ID}})" type="button" class="layui-btn layui-btn-xs">Reserve</button>
+        <button onclick="btnAct('del',{{d.ID}})" type="button"
+                class="layui-btn layui-btn-danger layui-btn-xs">
+            Delete
+        </button>
+    </script>
+    <script src="~/Content/GoodsList/index.js"></script>
+</body>

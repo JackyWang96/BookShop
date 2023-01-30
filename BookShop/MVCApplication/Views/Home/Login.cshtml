@@ -1,0 +1,74 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+<style type="text/css">
+    .elight-product-box .product-desc li {
+        font-size: 20px;
+    }
+</style>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" type="image/ico" href="~/favicon.ico" />
+    <link rel="bookmark" type="image/ico" href="~/favicon.ico" />
+    <link href="~/Content/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/Content/framework/css/login.css" rel="stylesheet" />
+    <link href="~/Content/framework/css/animate.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="elight-product-box animated fadeInUp">
+        <h2>Welcome to onilne book shop</h2>
+    </div>
+    <div class="elight-login-box animated fadeInRight">
+        <div class="elight-login-body">
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <label class="login-icon"><i class="layui-icon">&#xe612;</i></label>
+                    <input type="text" name="username" lay-verify="required" autocomplete="off" placeholder="Account" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <label class="login-icon">
+                        <i class="layui-icon">&#xe642;</i>
+                    </label>
+                    <input type="password" name="password" lay-verify="required" autocomplete="off" placeholder="Password" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn btn-submit" lay-submit lay-filter="login">Log in</button>
+                </div>
+            </form>
+        </div>
+        <div class="elight-login-fooder"></div>
+    </div>
+</body>
+</html>
+<script src="~/Content/jquery/jquery.min.js"></script>
+<script src="~/Content/jquery/jquery.md5.js"></script>
+<script src="~/Content/framework/js/global.js"></script>
+<script src="~/Content/layui/layui.js"></script>
+<script>
+    layui.use(['layer', 'form'], function () {
+        var layer = layui.layer;
+        var form = layui.form;
+        form.on('submit(login)', function (data) {
+            $(".btn-submit").html("Loging...");
+            $(".btn-submit").attr('disabled', true).addClass('layui-disabled');
+            $.ajax({
+                url: "/Home/Login",
+                data: data.field,
+                type: "post",
+                dataType: "json",
+                success: function (result) {
+                    if (result.resultType == 1) {
+                        window.location.href = "/Home/GoodsList";
+                        $(".btn-submit").html("Log in successful，Loading...");
+                    } else {
+                        $(".btn-submit").html("Log in");
+                        $(".btn-submit").attr('disabled', false).removeClass('layui-disabled');
+                        $.layerMsg(result.message, result.state);
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>

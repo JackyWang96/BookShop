@@ -1,0 +1,59 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    @*<link rel="stylesheet" href="../layui/css/layui.css">
+        <link rel="stylesheet" href="./index.css">*@
+    <link href="~/Content/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/Content/GoodsDetail/index.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="layui-form" lay-filter="addForm" style="padding: 20px;">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">Book Name</label>
+                <div class="layui-input-inline">
+                    <input name="BookName" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">BSB</label>
+                <div class="layui-input-inline">
+                    <input name="BSB" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">Price</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="Weight" class="layui-input" id="birth">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">颜色</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="Color" class="layui-input" id="birth">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="text-align: center;">
+                <button type="submit" class="layui-btn btnSub" lay-submit="" lay-filter="sub">立即提交</button>
+                <button class="layui-btn layui-btn-primary" onclick="parent.layer.close(parent.winObj)">取消</button>
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/jquery/jquery.min.js"></script>
+    <script src="~/Content/layui/layui.js"></script>
+    <script src="~/Content/GoodsDetail/index.js"></script>
+</body>
+
+</html>
+
