@@ -35,6 +35,10 @@ layui.use(function () {
                     title: 'BSB',
                     minWidth: 120,
                 }, {
+                    field: 'Reservation',
+                    title: 'Reservation Status',
+                    minWidth: 120,
+                },{
                     field: "",
                     title: "",
                     width: 150,
@@ -71,7 +75,7 @@ layui.use(function () {
     search = function () {
         var searchCondition = $('#searchCondition').val();
         $.ajax({
-            url: "/Home/GetBooksList",
+            url: "/Home/GetGoodsList",
             data: {
                 keyWord: searchCondition
             },
@@ -117,17 +121,39 @@ layui.use(function () {
         });
     }
 
+    reserved = function () {
+        $.ajax({
+            url: "http://localhost:57256//Home/ReservedBook",
+            data: {
+                keyWord: ""
+            },
+            success: function (res) {
+                var data = res;
+                console.log(data);
+                // 获取到 data
+                table.reload('demo', {
+                    code: 0,
+                    msg: "",
+                    count: 3,
+                    data: data
+                }, true)
+            }
+        });
+    }
+
     btnAct = function (type, id) {
         openType = type;
-        if (type == 'del') {
-            layer.confirm('真的删除行么', function (index) {
+        if (type == 'cancel') {
+            layer.confirm('Are you sure you want to cancel the reservation?', {
+                title: "Notification",
+                btn: ['Confrim', 'Cancel']
+            },function(index) {
                 $.ajax({
-                    url: "/Home/DelGoods",
+                    url: "/Home/CancelReservedBook",
                     data: {
                         ID: id
                     },
                     success: function (res) {
-                        // 调用删除接口
                         reload();
                         layer.close(index);
                     }
@@ -146,21 +172,27 @@ layui.use(function () {
             });
         }
 
-        if (id) {
-            // 此处调用 查询单条记录
-            // $.ajax();
-            // demo 写死
-            //openType = type;
-            $.ajax({
-                url: "/Home/GetSingleGood",
-                data: {
-                    ID: id
-                },
-                success: function (res) {
-                    var data = JSON.parse(res);
-                    chooseData = data;
-                }
+        if (type == 'reserve') {
+            layer.confirm('Are you sure you want to reserve this book?', {
+                title: "Notification",
+                btn: ['Confrim', 'Cancel']
+            },function (index) {
+                $.ajax({
+                    url: "/Home/ReservedBook",
+                    data: {
+                        ID: id
+                    },
+                    success: function (res) {
+                        reload();
+                        $('#reserve').addClass("layui-btn-disabled").attr("disabled", true);
+                       
+                        
+                        layer.close(index);
+                        $('btn').attr("disabled", true).addClass("layui-btn-disabled");
+                    }
+                });
             });
+            return
         } else {
             chooseData = {};
         }

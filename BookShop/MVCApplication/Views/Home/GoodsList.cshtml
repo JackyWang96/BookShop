@@ -18,12 +18,12 @@
 
 <body>
     <div id="list">
-        <div class="layui-inline">
+        @*<div class="layui-inline">
             <button onclick="btnAct('add')" type="button" class="layui-btn">Add Book</button>
         </div>
         <div class="layui-inline">
             <button onclick="SearchUser()" type="button" class="layui-btn">Check Book Details</button>
-        </div>
+        </div>*@
         <div class="layui-block" style="padding:15px 0;">
             <div class="layui-inline">
                 <input class="layui-input" name="condition" id="searchCondition" autocomplete="off">
@@ -36,9 +36,10 @@
     <!-- 特殊列模版 -->
     <script type="text/html" id="btn">
         <button onclick="btnAct('reserve',{{d.ID}})" type="button" class="layui-btn layui-btn-xs">Reserve</button>
-        <button onclick="btnAct('del',{{d.ID}})" type="button"
+        
+        <button onclick="btnAct('cancel',{{d.ID}})" type="button"
                 class="layui-btn layui-btn-danger layui-btn-xs">
-            Delete
+            Cancel
         </button>
     </script>
     <script src="~/Content/GoodsList/index.js"></script>

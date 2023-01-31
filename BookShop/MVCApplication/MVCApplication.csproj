@@ -303,8 +303,6 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\GoodsList.cshtml" />
     <Content Include="Views\Home\GoodsDetail.cshtml" />
-    <Content Include="Views\Home\UserList.cshtml" />
-    <Content Include="Views\Home\UserDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

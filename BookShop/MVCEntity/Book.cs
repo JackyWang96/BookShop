@@ -17,5 +17,8 @@ namespace MVCEntity
 
         [StringLength(50)]
         public string BSB { get; set; }
+
+        [StringLength(50)]
+        public string Reservation { get; set; }
     }
 }

@@ -94,5 +94,39 @@ namespace MVCLogic
             }
         }
 
+        /// <summary>
+        /// Reserved book 
+        /// </summary>
+        /// <param name="book"></param>
+        public void ReservedBook(int ID)
+        {
+            DemoEntity demoEntity=new DemoEntity();
+            var data = demoEntity.Books.Where(p => p.ID == ID).FirstOrDefault();
+            if (data != null)
+            {
+                data.Reservation = "Yes";
+                demoEntity.SaveChanges();
+            }
+            else
+            {
+                Console.WriteLine("Not find this data");
+            }
+        }
+
+        public void CancelReservedBook(int ID)
+        {
+            DemoEntity demoEntity = new DemoEntity();
+            var data = demoEntity.Books.Where(p => p.ID == ID).FirstOrDefault();
+            if (data != null)
+            {
+                data.Reservation = "No";
+                demoEntity.SaveChanges();
+            }
+            else
+            {
+                Console.WriteLine("Not find this data");
+            }
+        }
+
     }
 }

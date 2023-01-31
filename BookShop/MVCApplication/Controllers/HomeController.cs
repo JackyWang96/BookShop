@@ -79,6 +79,20 @@ namespace MVCApplication.Controllers
             return data.ToJsonCon();
         }
 
+        public bool ReservedBook(int ID)
+        {
+            logicbooks.ReservedBook(ID);
+            return true;
+        }
+
+        
+
+         public bool CancelReservedBook(int ID)
+        {
+            logicbooks.CancelReservedBook(ID);
+            return true;
+        }
+
         public ActionResult DelGoods(int ID)
         {
             bool b = logicGoods.DelGood(ID);
@@ -133,11 +147,11 @@ namespace MVCApplication.Controllers
             bool b = logicUser.DelUser(ID);
             if (b)
             {
-                return SuccessResult("删除成功");
+                return SuccessResult("Delete Successful");
             }
             else
             {
-                return SuccessResult("删除失败");
+                return SuccessResult("Delete failed");
             }
         }
 

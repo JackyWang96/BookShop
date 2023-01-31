@@ -16,7 +16,7 @@ $.layerOpen = function (options) {
         maxmin: false,
         content: '',
         shade: 0.3,
-        btn: ['确认', '取消'],
+        btn: ['Confirm', 'Cancel'],
         btnclass: ['btn btn-primary', 'btn btn-danger'],
         yes: null
     };
@@ -49,9 +49,6 @@ $.layerOpen = function (options) {
 
 }
 
-/**
- * 关闭模态窗。
- */
 $.layerClose = function () {
     var index = top.layer.getFrameIndex(window.name);
     top.layer.close(index);
@@ -74,7 +71,8 @@ $.layerConfirm = function (options) {
         callback: null
     };
     var options = $.extend(defaults, options);
-    top.layer.confirm(options.content, {
+    top.
+        (options.content, {
         title: options.title,
         icon: options.icon,
         btn: options.btn,
@@ -90,7 +88,7 @@ $.layerConfirm = function (options) {
     });
 }
 /**
- * 创建一个信息弹窗。
+ * Create notification window
  * @param {String} content 
  * @param {String} type 
  */

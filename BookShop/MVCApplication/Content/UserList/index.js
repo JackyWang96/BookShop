@@ -1,6 +1,6 @@
-// 按钮事件
+// UserDetails Page
 var btnAct = {};
-// 弹框
+
 var winObj = null;
 var openType = '';
 var chooseData = {};
@@ -11,12 +11,10 @@ layui.use(function () {
     layer = layui.layer;
 
     
-
-    //展示已知数据
     table.render({
         elem: '#user',
         cols: [
-            [ //标题栏
+            [ 
                 {
                     field: 'ID',
                     title: 'ID',
@@ -57,10 +55,7 @@ layui.use(function () {
                 }
             ]
         ],
-       /* data: [],
-        even: true,
-        page: true, //是否显示分页
-        limit: 10 //每页默认显示的数量*/
+
         parseData: function (res) {
             console.log(res);
             return {
@@ -68,8 +63,8 @@ layui.use(function () {
                 "msg": "",
                 "data": res,
                 "even": true,
-                "page": true, //是否显示分页
-                "limit": 10 //每页默认显示的数量
+                "page": true, 
+                "limit": 10 
             }
         }
     });
@@ -78,14 +73,13 @@ layui.use(function () {
         winObj = layer.open({
             type: 2,
             area: ['800px', '450px'],
-            fixed: false, //不固定
+            fixed: false, 
             maxmin: true,
             content: 'http://localhost:57256/Home/UserDetail'
         });
     }
 
     reload = function () {
-        // 此处调用查询接口
         $.ajax({
             url: "/Home/GetUserList",
             data: {
@@ -93,7 +87,6 @@ layui.use(function () {
             },
             success: function (res) {
                 var data = JSON.parse(res);
-                // 获取到 data
                 table.reload('user', {
                     data: data
                 }, true)

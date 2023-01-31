@@ -1,4 +1,3 @@
-/** common.js By Beginner Emain:zheng_jinfan@126.com HomePage:http://www.zhengjinfan.cn */
 layui.define(['layer'], function (exports) {
     "use strict";
 
@@ -8,7 +7,7 @@ layui.define(['layer'], function (exports) {
     var common = {
 
         /**
-         * 动态加载内联样式。
+         * 
          * @param {String} str
          */
         loadStyles: function (str) {
@@ -25,7 +24,7 @@ layui.define(['layer'], function (exports) {
         },
 
         /**
-         * 抛出一个异常错误信息。
+         * throw an error
          * @param {String} msg
          */
         throwError: function (msg) {

@@ -53,6 +53,10 @@ namespace MVCEntity
             modelBuilder.Entity<Book>()
                 .Property(e => e.BSB)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Book>()
+             .Property(e => e.Reservation)
+             .IsUnicode(false);
         }
     }
 }

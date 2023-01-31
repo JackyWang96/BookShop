@@ -91,7 +91,7 @@ layui.define(['layer'], function (exports) {
     }
 
     /**
-     * 抛出异常错误信息。
+     * throw an error
      * @param {String} msg
      */
     function throwError(msg) {
