@@ -34,10 +34,11 @@
         <table class="layui-hide" id="demo"></table>
     </div>
     <!-- Reservation part -->
+
     <script type="text/html" id="btn">
-        <button onclick="btnAct('reserve',{{d.ID}})" type="button" class="layui-btn layui-btn-xs">Reserve</button>
+        <button id={{d.ID}} onclick="btnAct('reserve',{{d.ID}})" type="button" class="layui-btn layui-btn-xs">Reserve</button>
         
-        <button onclick="btnAct('cancel',{{d.ID}})" type="button"
+        <button id={{d.ID}} onclick="btnAct('cancel',{{d.ID}})" type="button"
                 class="layui-btn layui-btn-danger layui-btn-xs">
             Cancel
         </button>

@@ -8,8 +8,6 @@ layui.use(function () {
     table = layui.table;
     layer = layui.layer;
 
-
-
     //Show Book data
     table.render({
         elem: '#demo',
@@ -29,11 +27,13 @@ layui.use(function () {
                     field: 'BSB',
                     title: 'BSB',
                     minWidth: 120,
-                }, {
-                    field: 'Reservation',
-                    title: 'Reservation Status',
-                    minWidth: 120,
-                }, {
+                },
+                //{
+                //    field: 'Reservation',
+                //    title: 'Reservation Status',
+                //    minWidth: 120,
+                //},
+                {
                     field: "",
                     title: "",
                     width: 150,
@@ -95,11 +95,13 @@ layui.use(function () {
                                     field: 'BSB',
                                     title: 'BSB',
                                     minWidth: 120,
-                                }, {
-                                    field: 'Reservation',
-                                    title: 'Reservation Status',
-                                    minWidth: 120,
-                                }, {
+                                },
+                                //{
+                                //    field: 'Reservation',
+                                //    title: 'Reservation Status',
+                                //    minWidth: 120,
+                                //},
+                                {
                                     field: "",
                                     title: "",
                                     width: 150,
@@ -174,8 +176,10 @@ layui.use(function () {
             }
         });
     }
+    
 
     btnAct = function (type, id) {
+
         openType = type;
         if (type == 'cancel') {
             layer.confirm('Are you sure you want to cancel the reservation?', {
@@ -188,8 +192,10 @@ layui.use(function () {
                         ID: id
                     },
                     success: function (res) {
-                        reload();
+                        /*reload();*/
+                        console.log(id);
                         layer.close(index);
+                        $('#' + id).removeClass("layui-btn-disabled").attr("disabled", false);;
                     }
                 });
             });
@@ -207,20 +213,21 @@ layui.use(function () {
                         ID: id
                     },
                     success: function (res) {
-                        reload();
+                        console.log(res);
                         layer.close(index);
-                        console.log(document.getElementById(id))
-                        $(('reserve', id)).attr("disabled", "true");
-                       
+                        console.log(id);
+                        /*reload();*/
+                        $('#'+id).addClass("layui-btn-disabled").attr("disabled", true);
                     }
                 });
             });
+ 
             return 
         } else {
             chooseData = {};
         }
         open();
     }
-    reload();
+    /*reload();*/
 
 });
