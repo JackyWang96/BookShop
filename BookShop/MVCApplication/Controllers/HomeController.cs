@@ -15,24 +15,24 @@ namespace MVCApplication.Controllers
         LogicUser logicUser = new LogicUser();
         LogicGoods logicGoods = new LogicGoods();
         LogicBooks logicbooks = new LogicBooks();
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
        public ActionResult Login()
         {
@@ -52,11 +52,11 @@ namespace MVCApplication.Controllers
                 var data = logicUser.CheckLogin(username, password);
                 if (data != null)
                 {
-                    return SuccessResult("登录成功");
+                    return SuccessResult("Login Success");
                 }
                 else
                 {
-                    return ErrorResult("登录失败");
+                    return ErrorResult("Login Falied");
                 }
             }
         }
@@ -98,11 +98,11 @@ namespace MVCApplication.Controllers
             bool b = logicGoods.DelGood(ID);
             if (b)
             {
-                return SuccessResult("删除成功");
+                return SuccessResult("delete successs");
             }
             else
             {
-                return ErrorResult("删除失败");
+                return ErrorResult("delete falied");
             }
         }
 
@@ -114,7 +114,7 @@ namespace MVCApplication.Controllers
         public ActionResult UpdateSingleGood(Goods goods)
         {
             logicGoods.UpdateSingleGood(goods);
-            return SuccessResult("修改成功");
+            return SuccessResult("add success");
         }
 
         public string GetSingleGood(int ID)
@@ -126,7 +126,7 @@ namespace MVCApplication.Controllers
         public ActionResult InsertSingleGood(Goods goods)
         {
             logicGoods.InsertGood(goods);
-            return SuccessResult("新增成功");
+            return SuccessResult("add success");
         }
 
 
@@ -184,7 +184,7 @@ namespace MVCApplication.Controllers
         public ActionResult UpdateSingleUser(User user)
         {
             logicUser.UpdateSingleUser(user);
-            return SuccessResult("修改成功");
+            return SuccessResult("change success");
         }
     }
 }
